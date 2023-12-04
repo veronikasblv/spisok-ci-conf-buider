@@ -16,13 +16,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build -t test .
+      run: docker build -t cont .
     - uses: actions/checkout@v3
     - name: Run the Docker image
       run: |
-        docker run test
+        docker run cont
         CONTAINER_ID=$(docker ps -alq)
-        sudo docker cp $CONTAINER_ID:/spisok.pdf .
+        sudo docker cp $CONTAINER_ID:sections/spisok.pdf .
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: new spisok build
