@@ -1,0 +1,28 @@
+name: build_ci
+
+on:
+  push:
+    branches: [ "build" ]
+  pull_request:
+    branches: [ "build" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build -t test .
+    - uses: actions/checkout@v3
+    - name: Run the Docker image
+      run: |
+        docker run test
+        CONTAINER_ID=$(docker ps -alq)
+        sudo docker cp $CONTAINER_ID:/spisok.pdf .
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: new spisok build
