@@ -18,7 +18,6 @@ end
 
 def get_page_count file_name
   output = `pdftk #{file_name} dump_data`
-  print("bebra\n")
   /NumberOfPages:\s+(?<npages>\d+)/ =~ output
   if npages
     npages.to_i
