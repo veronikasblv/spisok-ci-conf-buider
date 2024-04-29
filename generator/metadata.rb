@@ -69,6 +69,7 @@ class Proceedings
     start_page_count = get_page_count(File::join(sectionsfolder, '_a_begin.pdf'))
     @content_start_page = start_page_count + ( start_page_count.odd? ? 2 : 1 )
     @sections = procmeta['sections'].map do |f|
+      print(f)
       Section::new(File::expand_path(File::join(sectionsfolder, f)), @title)
     end
   end
