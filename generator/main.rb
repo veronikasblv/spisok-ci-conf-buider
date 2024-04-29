@@ -16,6 +16,7 @@ proceedings = Proceedings::new section_folder
 cpage = proceedings.content_start_page
 
 proceedings.sections.each do |s|
+  print(s.is_a?(Section))
   cpage = s.maketex(cpage)
 end
 
