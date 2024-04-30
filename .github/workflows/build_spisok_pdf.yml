@@ -1,11 +1,5 @@
 name: build_ci
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
 jobs:
 
   build:
