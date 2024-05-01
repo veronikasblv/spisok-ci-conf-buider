@@ -20,8 +20,8 @@ jobs:
         python-version: "3.10"
     - name: run script
       run: |
-        python script.py .
-    - name: commit changes
-      uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        commit_message: sections-generated
+        python sectiont/sections-generator.py
+    - name: check
+      run: |
+        cd sections
+        ls -al
