@@ -20,7 +20,7 @@ jobs:
         python-version: "3.10"
     - name: run script
       run: |
-        python sectiont/sections-generator.py
+        python sections/sections-generator.py
     - name: check
       run: |
         cd sections
