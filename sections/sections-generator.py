@@ -12,7 +12,9 @@ for sec in sections:
         sec_name_list.append(key)
 
 directory = './sections'
-print(os.listdir(directory))
+
+
+
 for sec in sec_name_list:
     if sec not in os.listdir(directory):
         os.makedirs(sec)
