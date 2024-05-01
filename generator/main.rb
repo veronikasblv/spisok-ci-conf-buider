@@ -12,6 +12,7 @@ else
 end
 
 proceedings = Proceedings::new section_folder
+print(proceedings)
 
 cpage = proceedings.content_start_page
 

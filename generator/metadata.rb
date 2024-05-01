@@ -64,13 +64,16 @@ class Proceedings
 
   def initialize(sectionsfolder)
     procmeta = YAML::load_file(File::join(sectionsfolder, 'proceedings.yml'))
+    names = []
+    procmeta['sections'].map do |f|
+      names += f.keys
+    end
     @sectionsfolder = sectionsfolder
     @title = procmeta['title']
     start_page_count = get_page_count(File::join(sectionsfolder, '_a_begin.pdf'))
     @content_start_page = start_page_count + ( start_page_count.odd? ? 2 : 1 )
-    @sections = procmeta['sections'].map do |f|
-      print(f)
-      Section::new(File::expand_path(File::join(sectionsfolder, f)), @title)
+    @sections = names.map do |w|
+      Section::new(File::expand_path(File::join(sectionsfolder, w)), @title)
     end
   end
 end
