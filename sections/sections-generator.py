@@ -12,9 +12,13 @@ for sec in sections:
         sec_name_list.append(key)
 
 directory = './sections'
+print(os.listdir(directory))
 for sec in sec_name_list:
     if sec not in os.listdir(directory):
         os.makedirs(sec)
+    os.system('cd sections')
+    os.system('ls')
+    os.system('cd ..')
     sec_dir = os.path.join(directory, sec)
     print(sec_dir)
     sec_yml_file = open(os.path.join(sec_dir, "section.yml"), 'w')
