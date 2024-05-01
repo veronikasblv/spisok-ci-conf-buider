@@ -17,5 +17,6 @@ jobs:
     - name: run script(test1)
       run: python3 sections/sections-generator.py
     - uses: stefanzweifel/git-auto-commit-action@v4
+    - name: commit changes
       with:
         commit_message: sections-generated
