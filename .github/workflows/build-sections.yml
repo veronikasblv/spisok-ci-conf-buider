@@ -24,7 +24,7 @@ jobs:
     - name: run script
       run: |
         python sections/sections-generator.py
-    - name: check
-      run: |
-        cd sections
-        ls -al
+    - name: commit changes
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: new spisok build
