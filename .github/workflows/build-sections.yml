@@ -27,4 +27,4 @@ jobs:
     - name: commit changes
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        commit_message: new spisok build
+        commit_message: sections created
