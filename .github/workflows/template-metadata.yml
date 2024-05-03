@@ -1,0 +1,33 @@
+name: Pdf template check and metadata extraction
+
+on:
+  workflow_run:
+    workflows: [Sections generator]
+    types:
+      - completed
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: set up python
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+      name: install dependencies
+      run: |
+        pip install beautifulsoup4
+        pip install lxml
+    - name: run script
+      run: |
+        python template-check-metadata-extraction/main.py ./sections
+    - name: commit changes
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: sections created
