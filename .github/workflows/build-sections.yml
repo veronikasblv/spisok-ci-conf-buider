@@ -5,6 +5,7 @@ on:
     paths:
       - 'sections/proceedings.yml'
     branches: [ "main" ]
+  workflow_dispatch:
 
 permissions:
   contents: write

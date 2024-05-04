@@ -1,0 +1,35 @@
+name: Conf pdf buider
+
+on:
+  push:
+    paths:
+      - 'sections/**'
+      - '!sections/proceedings.yml'
+    branches: [ "main" ]
+  workflow_dispatch:
+  workflow_run:
+    workflows: [Pdf template check and metadata extraction]
+    types:
+      - completed
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build -t cont .
+    - uses: actions/checkout@v3
+    - name: Run the Docker image
+      run: |
+        docker run cont
+        CONTAINER_ID=$(docker ps -alq)
+        sudo docker cp $CONTAINER_ID:sections/spisok.pdf .
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: new spisok build
