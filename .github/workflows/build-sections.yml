@@ -2,6 +2,8 @@ name: Sections generator
 
 on:
   push:
+    paths:
+      - './sections/proceedings.yml'
     branches: [ "main" ]
 
 permissions:
