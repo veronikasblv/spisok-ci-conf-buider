@@ -23,6 +23,4 @@ gen_toc(proceedings.sections, "Содержание", proceedings.title, cpage)
 
 gen_whole(proceedings.sections)
 
-system("ls")
 system("bash _gen_whole.sh")
-system("ls")
