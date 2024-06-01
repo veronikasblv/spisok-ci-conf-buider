@@ -53,7 +53,7 @@ gen_toc(proceedings.sections, "Содержание", proceedings.title, cpage)
 
 gen_whole(proceedings.sections)
 
-system("lsb_release -a")
+system("cat /etc/os-release")
 
 system("ls /usr/share/texlive/texmf-dist/tex/latex/hyperref")
 system("cat /usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def")
