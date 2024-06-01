@@ -53,4 +53,6 @@ gen_toc(proceedings.sections, "Содержание", proceedings.title, cpage)
 
 gen_whole(proceedings.sections)
 
+system("ls /usr/share/texlive/texmf-dist/tex/latex/hyperref")
+
 system("bash _gen_whole.sh")
