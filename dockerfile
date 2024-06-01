@@ -1,4 +1,4 @@
-FROM ubuntu-22.04
+FROM ubuntu:22.04
 COPY . .
 RUN echo "deb http://us.archive.ubuntu.com/ubuntu/ precise universe" >> /etc/apt/sources.list
 RUN apt-get -y update; apt-get -y upgrade
