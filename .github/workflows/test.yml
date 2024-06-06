@@ -54,7 +54,7 @@ jobs:
     - name: make bib
       working-directory: ./sections
       run: |
-        python python ../bibliography-generator/bib-gen.py
+        python ../bibliography-generator/bib-gen.py
         sudo mv spisok.bib ..
       
     - uses: stefanzweifel/git-auto-commit-action@v4
