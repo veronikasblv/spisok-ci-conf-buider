@@ -1,4 +1,4 @@
-name: Conf pdf buider
+name: Conf pdf buider test
 
 on:
   push:
@@ -24,16 +24,16 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: install pdftk
-      run: apt-get -y install pdftk
+      run: sudo apt-get -y install pdftk
 
     - name: install ruby
-      run: apt-get -y install ruby-full
+      run: sudo apt-get -y install ruby-full
 
     - name: install texlive
-      run: apt-get install -y texlive-xetex
+      run: sudo apt-get install -y texlive-xetex
 
     - name: copy fonts
-      run: mv fontsneeded /usr/share/fonts
+      run: sudo cp fontsneeded /usr/share/fonts
 
     - name: set up python
       uses: actions/setup-python@v3
@@ -49,13 +49,13 @@ jobs:
       run: |
         ruby ../generator/main.rb
         bash _gen_whole.sh
-        mv spisok.pdf ..
+        sudo mv spisok.pdf ..
       
     - name: make bib
       working-directory: ./sections
       run: |
         python python ../bibliography-generator/bib-gen.py
-        mv spisok.bib ..
+        sudo mv spisok.bib ..
       
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
