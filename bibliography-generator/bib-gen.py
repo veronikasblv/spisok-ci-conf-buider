@@ -57,7 +57,7 @@ def get_pages_num(section, article):
     return [first_page, last_page]
 
 directory = '.'
-bib = open("../spisok.bib", 'w', 2, 'utf-8')
+bib = open("./spisok.bib", 'w', 2, 'utf-8')
 
 m_file = open("../bibliography-generator/meta.yaml", 'r')
 meta = yaml.load(m_file, Loader=yaml.FullLoader)
