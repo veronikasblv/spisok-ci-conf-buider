@@ -53,5 +53,5 @@ gen_toc(proceedings.sections, "Содержание", proceedings.title, cpage)
 
 gen_whole(proceedings.sections)
 
-system("bash _gen_whole.sh")
-system("python3 ../bibliography-generator/bib-gen.py")
+# system("bash _gen_whole.sh")
+# system("python3 ../bibliography-generator/bib-gen.py")
