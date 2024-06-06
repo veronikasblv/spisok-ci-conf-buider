@@ -33,7 +33,7 @@ jobs:
       run: sudo apt-get install -y texlive-xetex
 
     - name: copy fonts
-      run: sudo cp fontsneeded /usr/share/fonts
+      run: sudo cp -r fontsneeded /usr/share/fonts
 
     - name: set up python
       uses: actions/setup-python@v3
