@@ -30,6 +30,7 @@ jobs:
         docker run cont
         CONTAINER_ID=$(docker ps -alq)
         sudo docker cp $CONTAINER_ID:sections/spisok.pdf .
+        sudo docker cp $CONTAINER_ID:sections/spisok.bib .
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: new spisok build

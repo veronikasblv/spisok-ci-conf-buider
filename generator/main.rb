@@ -53,9 +53,5 @@ gen_toc(proceedings.sections, "Содержание", proceedings.title, cpage)
 
 gen_whole(proceedings.sections)
 
-system("cat /etc/os-release")
-
-system("ls /usr/share/texlive/texmf-dist/tex/latex/hyperref")
-system("cat /usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def")
-
 system("bash _gen_whole.sh")
+system("python3 ../bibliography-generator/bib-gen.py")
