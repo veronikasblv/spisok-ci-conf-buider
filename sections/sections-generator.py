@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import yaml
 import os
+import shutil
 
 with open("./sections/proceedings.yml", 'r') as src:
     data = yaml.load(src, Loader=yaml.FullLoader)
@@ -14,12 +15,9 @@ for sec in sections:
 directory = './sections'
 
 for dr in os.listdir(directory):
-    if os.path.isdir(dr):
-        print(dr )
+    if os.path.isdir(os.path.join(directory, dr)):
         if dr not in sec_name_list:
-            print( dr)
-            print("\n")
-            os.rmdir(os.path.join(directory, dr))
+            shutil.rmtree(os.path.join(directory, dr))
 
 for sec in sec_name_list:
     if sec not in os.listdir(directory):
