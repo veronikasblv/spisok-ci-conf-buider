@@ -13,6 +13,11 @@ for sec in sections:
 
 directory = './sections'
 
+for dr in os.listdir(directory):
+    if os.isdir(dr):
+        if dr not in sec_name_list:
+            os.rmdir(os.path.join(directory, dr))
+
 for sec in sec_name_list:
     if sec not in os.listdir(directory):
         os.makedirs(os.path.join(directory, sec))
