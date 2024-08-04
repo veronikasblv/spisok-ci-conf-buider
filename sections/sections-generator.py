@@ -15,7 +15,10 @@ directory = './sections'
 
 for dr in os.listdir(directory):
     if os.path.isdir(dr):
+        print(dr )
         if dr not in sec_name_list:
+            print( dr)
+            print("\n")
             os.rmdir(os.path.join(directory, dr))
 
 for sec in sec_name_list:
