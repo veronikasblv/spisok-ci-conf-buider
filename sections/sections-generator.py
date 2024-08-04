@@ -14,7 +14,7 @@ for sec in sections:
 directory = './sections'
 
 for dr in os.listdir(directory):
-    if os.isdir(dr):
+    if os.path.isdir(dr):
         if dr not in sec_name_list:
             os.rmdir(os.path.join(directory, dr))
 
